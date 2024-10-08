@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1>Welcome to My Radio Form</h1>
+    <style>
+        /* Add your CSS styles here */
+        /* Define styles for the radio section */
+        .radio-section {
+            background-color: peachpuff;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid darkorchid;
+            border-radius: 5px;
+        }
+        .radio-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .radio-program {
+            margin-bottom: 20px;
+        }
+        .program-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .program-details {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <section class="radio-section">
+            <h2 class="radio-title">Radio Programs</h2>
+            <div class="radio-program">
+                <h3 class="program-name">Morning Show</h3>
+                <p class="program-details">Morning Mix: A blend of music and talk to kickstart your day.</p>
+                <p class="program-details">Sunrise Spotlight: Your daily dose of news, entertainment, and insights.</p>
+                <p class="program-details">Early Birds News: Stay informed with national and international headlines.</p>
+                <p class="program-details">Tech Talk Sunrise: Explore the world of technology, gadgets, and innovations.</p>
+                <p class="program-details">Morning Munchies: Food, recipes, and culinary delights for breakfast enthusiasts.</p>
+                
+            </div>
+            <div class="radio-program">
+                <h3 class="program-name">Evening Talk</h3>
+                <p class="program-details">Evening Conversations: Diverse Talk for a Broad Audience</p>
+                <p class="program-details">The Nightly Roundtable: Informed Discussions on Current Topics</p>
+                <p class="program-details">Twilight Tales: Stories, Poems, and More</p>
+                <p class="program-details">Health and Wellness Hour: Your Well-Being Matters</p>
+                <p class="program-details">Evening Comedy Club: Laugh Your Way Through the Night</p>
+                <p class="program-details">Travel Talk: Explore the World with Us</p>
+                
+            </div>
+            <!-- Add more radio programs here -->
+        </section>
+    </div>
+    <form action="your_server_script.php" method="post" enctype="multipart/form-data">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        </br>
+        
+        <label for="station">Select Station:</label>
+        <select id="station" name="station">
+            <option value="Station1">Station 1</option>
+            <option value="Station2">Station 2</option>
+            <!-- Add more options as needed -->
+        </select>
+        </br>
+        
+        <label for="program">Select Program:</label>
+        <select id="program" name="program">
+            <option value="Program1">Program 1</option>
+            <option value="Program2">Program 2</option>
+            <!-- Add more options as needed -->
+        </select>
+        </br>
+        
+        <label for="adDuration">Select Ad Duration:</label>
+        <select id="adDuration" name="adDuration">
+            <option value="5sec">5 Seconds</option>
+            <option value="10sec">10 Seconds</option>
+            <option value="15sec">15 Seconds</option>
+            <!-- Add more options as needed -->
+        </select>
+        </br>
+        
+        <label>Repeat:</label>
+        <input type="radio" id="repeatNone" name="repeat" value="nil">
+        <label for="repeatNone">None</label>
+        <input type="radio" id="repeat2Times" name="repeat" value="2 Times">
+        <label for="repeat2Times">2 Times</label>
+        <input type="radio" id="repeat3Times" name="repeat" value="3 Times">
+        <label for="repeat3Times">3 Times</label>
+        </br>
+        
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" readonly>
+        </br>
+        
+        <label for="fileUpload">Upload File:</label>
+        <input type="file" id="fileUpload" name="fileUpload" accept=".pdf, .doc, .docx">
+        </br>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

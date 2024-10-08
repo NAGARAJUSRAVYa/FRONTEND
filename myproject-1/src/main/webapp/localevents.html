@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Events</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: rgb(64, 0, 64);
+            color: white;
+            padding: 5px 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: rgb(64, 0, 64);
+            border-bottom: 2px solid rgb(64, 0, 64);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .event-card {
+            background-color: rgb(192, 192, 192);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: scale(1.02);
+        }
+
+        .event-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .event-card h3 {
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .event-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Local Events</h1>
+    </header>
+  
+    <div class="container">
+        <section id="events" class="section">
+            <h2>Upcoming Local Events</h2>
+            <article class="event-card">
+                <img src="fest1.jpeg" alt="City Festival">
+                <h3>City Festival</h3>
+                <p>Date: August 15, 2024<br>
+                   Location: Downtown Park<br>
+                   Description: Join us for a vibrant city festival featuring music, food stalls, and family activities. A great event for all ages!</p>
+            </article>
+            <article class="event-card">
+                <img src="music.jpeg" alt="Live Music Concert">
+                <h3>Live Music Concert</h3>
+                <p>Date: September 10, 2024<br>
+                   Location: Central Arena<br>
+                   Description: Enjoy an evening of live music performances by local and international artists. Tickets are available online.</p>
+            </article>
+            <article class="event-card">
+                <img src="art.jpeg" alt="Art Exhibition">
+                <h3>Art Exhibition</h3>
+                <p>Date: October 5 - 20, 2024<br>
+                   Location: City Art Gallery<br>
+                   Description: Explore a diverse collection of contemporary art at the City Art Gallery. Featuring works from local artists and international talents.</p>
+            </article>
+            <article class="event-card">
+                <img src="fair.jpeg" alt="Food Fair">
+                <h3>Food Fair</h3>
+                <p>Date: November 12, 2024<br>
+                   Location: Riverside Park<br>
+                   Description: Taste delicious dishes from various cuisines at the annual Food Fair. Enjoy live cooking demonstrations and food-related activities.</p>
+            </article>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Local Events. All rights reserved.</p>
+    </footer>
+</body>
+</html>

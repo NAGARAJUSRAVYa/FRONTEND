@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .tracking-info,
+        .tracking-history {
+            margin: 20px 0;
+        }
+
+        .tracking-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .update-button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .update-button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .history-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Order Tracking</h1>
+        <div class="tracking-info">
+            <div class="tracking-item">
+                <span>Order ID:</span>
+                <span id="order-id">123456</span>
+            </div>
+            <div class="tracking-item">
+                <span>Carrier:</span>
+                <span id="carrier">UPS</span>
+            </div>
+            <div class="tracking-item">
+                <span>Tracking Number:</span>
+                <span id="tracking-number">1Z9999999999999999</span>
+            </div>
+            <div class="tracking-item">
+                <span>Shipment Date:</span>
+                <span id="shipment-date">Loading...</span>
+            </div>
+            <div class="tracking-item">
+                <span>Estimated Delivery:</span>
+                <span id="delivery-date">Loading...</span>
+            </div>
+            <div class="tracking-item">
+                <span>Current Location:</span>
+                <span id="current-location">Loading...</span>
+            </div>
+            <div class="tracking-item">
+                <span>Status:</span>
+                <span id="status">Loading...</span>
+            </div>
+        </div>
+
+        <button class="update-button" onclick="updateTracking()">Refresh Tracking Info</button>
+
+        <h2>Tracking History</h2>
+        <div class="tracking-history" id="tracking-history">
+            <div class="history-item">Status updated to "Order Placed" on <span id="initial-date">Loading...</span></div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Soulful Crafts. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Simulated tracking data
+        const trackingData = {
+            orderId: "123456",
+            carrier: "UPS",
+            trackingNumber: "1Z9999999999999999",
+            shipmentDate: new Date(Date.now() - 86400000).toLocaleDateString(), // 1 day ago
+            deliveryDate: new Date(Date.now() + 3 * 86400000).toLocaleDateString(), // 3 days later
+            currentLocation: "Los Angeles, CA",
+            status: "Out for Delivery",
+            history: [
+                { status: "Order Placed", date: new Date(Date.now() - 2 * 86400000) }, // 2 days ago
+                { status: "Shipped", date: new Date(Date.now() - 1 * 86400000) }, // 1 day ago
+                { status: "Out for Delivery", date: new Date() } // now
+            ],
+        };
+
+        function updateTracking() {
+            // Simulate fetching updated tracking information
+            document.getElementById('order-id').innerText = trackingData.orderId;
+            document.getElementById('carrier').innerText = trackingData.carrier;
+            document.getElementById('tracking-number').innerText = trackingData.trackingNumber;
+            document.getElementById('shipment-date').innerText = trackingData.shipmentDate;
+            document.getElementById('delivery-date').innerText = trackingData.deliveryDate;
+            document.getElementById('current-location').innerText = trackingData.currentLocation;
+            document.getElementById('status').innerText = trackingData.status;
+            document.getElementById('initial-date').innerText = new Date(Date.now() - 2 * 86400000).toLocaleDateString();
+
+            // Update tracking history
+            const historyContainer = document.getElementById('tracking-history');
+            historyContainer.innerHTML = ""; // Clear existing history
+
+            trackingData.history.forEach(item => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.innerText = `Status updated to "${item.status}" on ${item.date.toLocaleDateString()}`;
+                historyContainer.appendChild(historyItem);
+            });
+
+            // Simulate status update after some time
+            setTimeout(() => {
+                trackingData.status = "Delivered";
+                trackingData.currentLocation = "Delivered to your address";
+                trackingData.deliveryDate = new Date().toLocaleDateString(); // Update delivery date
+
+                // Update the status and current location
+                document.getElementById('status').innerText = trackingData.status;
+                document.getElementById('current-location').innerText = trackingData.currentLocation;
+
+                // Add to tracking history
+                trackingData.history.push({ status: "Delivered", date: new Date() });
+                updateTracking(); // Refresh the display
+            }, 10000); // Change status to "Delivered" after 10 seconds for demonstration
+        }
+
+        // Initial call to populate tracking info on page load
+        updateTracking();
+    </script>
+</body>
+
+</html>

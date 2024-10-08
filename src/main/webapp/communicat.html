@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f5f5f5;
+            padding: 10px 20px;
+        }
+        .header .logo {
+            font-size: 25px;
+            color: #000;
+            text-decoration: none;
+        }
+        .nav-items {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-items a {
+            text-decoration: none;
+            color: #000;
+            padding: 15px 20px;
+            border-radius: 5px;
+        }
+        .nav-items a.active {
+            background-color: #5edaf0;
+            color: #fff;
+        }
+        section {
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            background-color: #5edaf0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #4db8db;
+        }
+        .message-container {
+            margin-top: 20px;
+        }
+        .message {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        let messages = [
+            { id: 1, sender: "Admin", content: "Welcome to the artisan community! Let’s preserve our heritage together." },
+            { id: 2, sender: "Artisan", content: "Thank you for your support! I am excited to share my craft." }
+        ];
+
+        function renderMessages() {
+            const messageContainer = document.getElementById('messageContainer');
+            messageContainer.innerHTML = ''; // Clear existing messages
+
+            messages.forEach(message => {
+                const msgDiv = document.createElement('div');
+                msgDiv.classList.add('message');
+                msgDiv.innerHTML = `<strong>${message.sender}:</strong> ${message.content}`;
+                messageContainer.appendChild(msgDiv);
+            });
+        }
+
+        function sendMessage() {
+            const messageContent = prompt("Enter your message:");
+            if (messageContent) {
+                const newMessage = {
+                    id: messages.length + 1,
+                    sender: "You",
+                    content: messageContent
+                };
+                messages.push(newMessage);
+                renderMessages();
+            } else {
+                alert("Please enter a message before sending.");
+            }
+        }
+
+        // Initial render
+        window.onload = renderMessages;
+    </script>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Soulful Crafts Admin</a>
+        <nav class="nav-items">
+        <a href="manager_dashboard.html">Home</a>
+            <a href="manage-artisans.html">Manage Artisans</a>
+            <a href="review-artworks.html">Review Artworks</a>
+            <a href="manage-heritage.html">Manage Heritage Content</a>
+            <a href="communicat.html" class="active">Communicate with Artisans</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+    <section>
+        
+        <button onclick="sendMessage()">Send a Message</button>
+        <div class="message-container" id="messageContainer">
+            <!-- Messages will be rendered here -->
+        </div>
+    </section>
+</body>
+</html>

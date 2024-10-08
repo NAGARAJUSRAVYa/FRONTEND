@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotions - Handcrafted Tribal Gifts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .banner {
+            background-color: #5cb85c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product h2 {
+            font-size: 1.2em;
+            margin: 0.5em 0;
+        }
+
+        .product p {
+            color: #555;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .discount {
+            color: #d9534f;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .add-to-cart {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+         .view-cart {
+            margin: 20px;
+            text-align: center;
+        }
+        
+
+        .add-to-cart:hover {
+            background-color: #4cae4c;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+   
+        <h1>Promotions on Handcrafted Tribal Gifts</h1>
+    </header>
+    <div class="banner">
+        Limited Time Offer! Get 20% off on selected items!
+    </div>
+     <div class="view-cart">
+            <a href="cart.html">View Cart</a>
+        </div>
+    <main>
+        <div class="product-container" id="product-container">
+            <!-- Promotional product items will be dynamically added here -->
+        </div>
+    </main>
+   
+
+    <script>
+        // Sample promotional products for display
+        const promotionalProducts = [
+            {
+                name: "Handcrafted Pot",
+                originalPrice: 25.00,
+                discountPrice: 20.00,
+                image: "hand.jpg", // Replace with your image path
+                description: "A beautifully handcrafted pot made from natural clay."
+            },
+            {
+                name: "Wooden Sculpture",
+                originalPrice: 50.00,
+                discountPrice: 40.00,
+                image: "wooden.jpg", // Replace with your image path
+                description: "A stunning wooden sculpture carved by local artisans."
+            },
+            {
+                name: "Traditional Rug",
+                originalPrice: 100.00,
+                discountPrice: 80.00,
+                image: "rugg.jpg", // Replace with your image path
+                description: "A handwoven rug that showcases traditional patterns."
+            },
+            {
+                name: "Ceramic Vase",
+                originalPrice: 30.00,
+                discountPrice: 24.00,
+                image: "vasee.jpg", // Replace with your image path
+                description: "A unique ceramic vase perfect for any decor."
+            },
+            {
+                name: "Beaded Necklace",
+                originalPrice: 15.00,
+                discountPrice: 12.00,
+                image: "neck.jpg", // Replace with your image path
+                description: "A colorful beaded necklace made with love."
+            },
+            {
+                name: "Tribal Drum",
+                originalPrice: 60.00,
+                discountPrice: 48.00,
+                image: "drumm.jpg", // Replace with your image path
+                description: "A handcrafted drum that produces rich, resonant sounds."
+            },
+            {
+                name: "Handwoven Basket",
+                originalPrice: 20.00,
+                discountPrice: 15.00,
+                image: "baskett.jpg", // Replace with your image path
+                description: "A versatile basket, perfect for storage or decor."
+            },
+            {
+                name: "Woven Blanket",
+                originalPrice: 80.00,
+                discountPrice: 64.00,
+                image: "blanket.jpeg", // Replace with your image path
+                description: "A cozy woven blanket made from natural fibers."
+            },
+            {
+                name: "Stone Carving",
+                originalPrice: 75.00,
+                discountPrice: 60.00,
+                image: "stone.jpeg", // Replace with your image path
+                description: "An intricate stone carving reflecting cultural heritage."
+            },
+            {
+                name: "Leather Journal",
+                originalPrice: 40.00,
+                discountPrice: 32.00,
+                image: "leather.jpg", // Replace with your image path
+                description: "A handcrafted leather journal for your thoughts."
+            },
+            {
+                name: "Colorful Wall Hanging",
+                originalPrice: 35.00,
+                discountPrice: 28.00,
+                image: "wall.jpeg", // Replace with your image path
+                description: "A vibrant wall hanging that brightens up any space."
+            },
+            {
+                name: "Traditional Mask",
+                originalPrice: 45.00,
+                discountPrice: 36.00,
+                image: "mask.jpg", // Replace with your image path
+                description: "A striking traditional mask that tells a story."
+            },
+            {
+                name: "Handmade Soap",
+                originalPrice: 10.00,
+                discountPrice: 8.00,
+                image: "soap.jpg", // Replace with your image path
+                description: "Organic handmade soap, perfect for gifting."
+            },
+            {
+                name: "Terracotta Figurine",
+                originalPrice: 22.00,
+                discountPrice: 17.00,
+                image: "fig.jpg", // Replace with your image path
+                description: "A terracotta figurine that adds charm to any space."
+            },
+            {
+                name: "Ethnic Earrings",
+                originalPrice: 18.00,
+                discountPrice: 14.00,
+                image: "rin.jpg", // Replace with your image path
+                description: "Stylish ethnic earrings for any occasion."
+            }
+        ];
+
+        // Function to display promotional products
+        function displayPromotionalProducts() {
+            const productContainer = document.getElementById('product-container');
+            promotionalProducts.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+                productDiv.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h2>${product.name}</h2>
+                    <p>${product.description}</p>
+                    <p class="price">Original Price: <span style="text-decoration: line-through;">$${product.originalPrice.toFixed(2)}</span></p>
+                    <p class="discount">Discount Price: $${product.discountPrice.toFixed(2)}</p>
+                    <button class="add-to-cart" onclick="addToCart('${product.name}', ${product.discountPrice}, '${product.image}')">Add to Cart</button>
+                `;
+                productContainer.appendChild(productDiv);
+            });
+        }
+
+        // Function to add item to cart and redirect to cart page
+        function addToCart(name, price, image) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingProduct = cart.find(item => item.name === name);
+
+            if (existingProduct) {
+                existingProduct.quantity++;
+            } else {
+                cart.push({ name, price, quantity: 1, image }); // Include image in the cart
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} has been added to your cart. Redirecting to cart...`);
+            window.location.href = 'cart.html'; // Redirect to cart
+        }
+
+        // Call the function to display promotional products when the page loads
+        displayPromotionalProducts();
+    </script>
+</body>
+</html>

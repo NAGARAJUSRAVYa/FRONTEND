@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handcrafted Tribal Gifts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product h2 {
+            font-size: 1.2em;
+            margin: 0.5em 0;
+        }
+
+        .product p {
+            color: #555;
+        }
+
+        .product .price {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .add-to-cart {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #4cae4c;
+        }
+         .view-cart {
+            margin: 20px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Handcrafted Tribal Gifts</h1>
+    </header>
+     <div class="view-cart">
+            <a href="cart.html">View Cart</a>
+        </div>
+    <main>
+        <div class="product-container" id="product-container">
+            <!-- Product items will be dynamically added here -->
+        </div>
+    </main>
+    
+
+    <script>
+        // Sample products for display
+        const products = [
+        	{
+                name: "Bracelet gift Card",
+                price: 25.00,
+                image: "gift.jpg", // Replace with your image path
+                description: "A beautifully handcrafted bracelet made with colorful beads and natural materials, perfect for any occasion."
+            },
+                {
+                    name: "Tribal axe Gift Certificate",
+                    price: 30.00,
+                    image: "cert.jpg", // Replace with your image path
+                    description: "ideal for collectors and lovers of handcrafted tools!!"
+                },
+                {
+                    name: "Tribal gift designed by the Gifted Horse",
+                    price: 20.00,
+                    image: "hor.jpg", // Replace with your image path
+                    description: " Experience the elegance of a Tribal Gift, intricately designed by the talented Horse!"
+                },
+                {
+                    name: "Tribal Wall Art Gift Card",
+                    price: 40.00,
+                    image: "ar.jpg", // Replace with your image path
+                    description: "This gift card lets you choose a unique piece of tribal wall art that adds character to any room!"
+                },
+                {
+                    name: "Handcrafted Jewelry Set Gift Card",
+                    price: 50.00,
+                    image: "set.jpg", // Replace with your image path
+                    description: "A perfect gift for someone special, this card allows them to select a beautiful handcrafted jewelry set!"
+                }
+            ];
+
+
+        // Function to display products
+        function displayProducts() {
+            const productContainer = document.getElementById('product-container');
+            products.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+                productDiv.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h2>${product.name}</h2>
+                    <p>${product.description}</p>
+                    <p class="price">$${product.price.toFixed(2)}</p>
+                    <button class="add-to-cart" onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">Add to Cart</button>
+                `;
+                productContainer.appendChild(productDiv);
+            });
+        }
+
+        // Function to add item to cart
+        function addToCart(name, price, image) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingProduct = cart.find(item => item.name === name);
+
+            if (existingProduct) {
+                existingProduct.quantity++;
+            } else {
+                cart.push({ name, price, quantity: 1, image }); // Include image in the cart
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} has been added to your cart.`);
+            window.location.href = 'cart.html'; // Redirect to the cart page
+        }
+
+        // Call the function to display products when the page loads
+        displayProducts();
+    </script>
+</body>
+</html>

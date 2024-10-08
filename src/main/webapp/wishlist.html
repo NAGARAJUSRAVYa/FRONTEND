@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Wishlist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        .wishlist-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1em;
+        }
+        .wishlist-item {
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            padding: 1em;
+            margin-bottom: 1em;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .wishlist-item img {
+            width: 100px;
+            height: auto;
+        }
+        .wishlist-item div {
+            flex-grow: 1;
+            padding: 0 1em;
+        }
+        .wishlist-item h3, .wishlist-item p {
+            margin: 0;
+        }
+        .wishlist-item button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 0.5em;
+            cursor: pointer;
+        }
+        .remove-btn {
+            background-color: #dc3545;
+            margin-left: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Wishlist</h1>
+    </header>
+
+    <div class="wishlist-container" id="wishlist-container">
+        <!-- Wishlist items will be displayed here -->
+    </div>
+
+    <script>
+        // Function to render wishlist items
+        function renderWishlist() {
+            const wishlistContainer = document.getElementById('wishlist-container');
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            
+            if (wishlist.length === 0) {
+                wishlistContainer.innerHTML = '<p>Your wishlist is empty.</p>';
+            } else {
+                wishlist.forEach((item, index) => {
+                    const wishlistItem = `
+                        <div class="wishlist-item">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div>
+                                <h3>${item.name}</h3>
+                                <p>$${item.price}</p>
+                            </div>
+                            <div>
+                                <button onclick="addToCart('${item.name}', ${item.price}, '${item.image}')">Add to Cart</button>
+                                <button class="remove-btn" onclick="removeFromWishlist(${index})">Remove</button>
+                            </div>
+                        </div>
+                    `;
+                    wishlistContainer.innerHTML += wishlistItem;
+                });
+            }
+        }
+
+        // Function to add item to cart from wishlist
+        function addToCart(productName, price, image) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingProduct = cart.find(item => item.name === productName);
+
+            if (existingProduct) {
+                existingProduct.quantity++;
+            } else {
+                cart.push({ name: productName, price: price, quantity: 1, image }); // Include image in the cart
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            window.location.href = 'cart.html'; // Redirect to cart
+        }
+
+        // Function to remove item from wishlist
+        function removeFromWishlist(index) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist.splice(index, 1); // Remove item at the given index
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            window.location.reload(); // Reload the page to update the wishlist
+        }
+
+        // Initialize wishlist rendering
+        window.onload = renderWishlist;
+    </script>
+</body>
+</html>

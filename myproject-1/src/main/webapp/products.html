@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Tribal Handicrafts Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        .logo {
+            width: 100px; /* Adjust width as necessary */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 10px; /* Space between logo and title */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        nav {
+            margin: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline; /* Underline effect on hover */
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap; /* Allows wrapping to the next line */
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            background: #fff;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            margin: 10px; /* Adds space between products */
+        }
+
+        .product img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .add-to-cart, .add-to-wishlist {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+
+        .add-to-wishlist {
+            background-color: #f0ad4e; /* Different color for wishlist button */
+        }
+
+        .view-cart {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .view-cart a {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.jpeg" alt="Tribal Handicrafts Logo" class="logo">
+        <h1>Our Products</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+            <a href="wishlist.html">Wishlist</a>
+            <a href="orders.html">Orders</a>
+            <a href="promotions.html">Promotions</a>
+            <a href="gift.html">Gift Cards</a>
+            <a href="profile.html"><i class="fa fa-fw fa-user"> Profile</i></a>
+        </nav>
+    </header>
+    
+    <div class="view-cart">
+        <a href="cart.html">View Cart</a>
+    </div>
+    
+    <main>
+        <div class="products">
+            <div class="product" data-name="Handcrafted Pot" data-price="25.00" data-image="pot.jpeg">
+                <img src="pot.jpg" alt="Handcrafted Pot">
+                <h2>Handcrafted Pot</h2>
+                <p>$25.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Handcrafted Pot', 25, 'pot.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Wooden Sculpture" data-price="50.00" data-image="pouch.jpeg">
+                <img src="pouch.jpeg" alt="Wooden Sculpture">
+                <h2>Wooden Sculpture</h2>
+                <p>$50.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Wooden Sculpture', 50, 'pouch.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Traditional Rug" data-price="100.00" data-image="rug.jpeg">
+                <img src="rug.jpeg" alt="Traditional Rug">
+                <h2>Traditional Rug</h2>
+                <p>$100.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Traditional Rug', 100, 'rug.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Ceramic Vase" data-price="35.00" data-image="vase.jpeg">
+                <img src="vase.jpeg" alt="Ceramic Vase">
+                <h2>Ceramic Vase</h2>
+                <p>$35.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Ceramic Vase', 35, 'vase.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Handwoven Basket" data-price="45.00" data-image="basket.jpeg">
+                <img src="basket.jpeg" alt="Handwoven Basket">
+                <h2>Handwoven Basket</h2>
+                <p>$45.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Handwoven Basket', 45, 'basket.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Tribal Mask" data-price="80.00" data-image="mask.jpeg">
+                <img src="mask.jpeg" alt="Tribal Mask">
+                <h2>Tribal Mask</h2>
+                <p>$80.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Tribal Mask', 80, 'mask.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Beaded Necklace" data-price="60.00" data-image="necklace.jpeg">
+                <img src="necklace.jpeg" alt="Beaded Necklace">
+                <h2>Beaded Necklace</h2>
+                <p>$60.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Beaded Necklace', 60, 'necklace.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Leather Bag" data-price="120.00" data-image="bag.jpeg">
+                <img src="leather.jpg" alt="Leather Bag">
+                <h2>Leather Bag</h2>
+                <p>$120.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Leather Bag', 120, 'bag.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Sculpted Figurine" data-price="70.00" data-image="figurine.jpeg">
+                <img src="fig.jpg" alt="Sculpted Figurine">
+                <h2>Sculpted Figurine</h2>
+                <p>$70.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Traditional Necklace" data-price="70.00" data-image="figurine.jpeg">
+                <img src="neck.jpg" alt="Traditional Necklace">
+                <h2>Traditional Necklace</h2>
+                <p>$40.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Handcrafted Bracelet" data-price="70.00" data-image="figurine.jpeg">
+                <img src="bracelet.jpeg" alt="Handcrafted Bracelet">
+                <h2>Handcrafted Bracelet</h2>
+                <p>$40.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Tribal Blanket" data-price="70.00" data-image="figurine.jpeg">
+                <img src="blanket.jpeg" alt="Tribal Blankett">
+                <h2>Tribal Blanket</h2>
+                <p>$60.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Handwoven Rug" data-price="70.00" data-image="figurine.jpeg">
+                <img src="rugg.jpg" alt="Handwoven Rug">
+                <h2>Handwoven Rug</h2>
+                <p>$85.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Tribal Earrings" data-price="70.00" data-image="figurine.jpeg">
+                <img src="ear.jpeg" alt="Tribal Earrings">
+                <h2>Tribal Earrings</h2>
+                <p>$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Tribal Painting" data-price="70.00" data-image="figurine.jpeg">
+                <img src="paint.png" alt="Tribal Painting">
+                <h2>Tribal Painting</h2>
+                <p>$100.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Handwoven Basket" data-price="70.00" data-image="figurine.jpeg">
+                <img src="basket.jpeg" alt="Handwoven Basket">
+                <h2>Handwoven Basket</h2>
+                <p>$45.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Tribal Shawl" data-price="70.00" data-image="figurine.jpeg">
+                <img src="shawl.jpeg" alt="Tribal Shawl">
+                <h2>Tribal Shawl</h2>
+                <p>$55.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Handmade Dreamcatcher" data-price="70.00" data-image="figurine.jpeg">
+                <img src="dream.jpeg" alt="Handmade Dreamcatcher">
+                <h2>Handmade Dreamcatcher</h2>
+                <p>$30.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Wooden Bowl" data-price="70.00" data-image="figurine.jpeg">
+                <img src="wooden.jpeg" alt="Wooden Bowl">
+                <h2>Wooden Bowl</h2>
+                <p>$60.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Clay Figurine" data-price="70.00" data-image="figurine.jpeg">
+                <img src="clay.jpeg" alt="HClay Figurine">
+                <h2>Clay Figurine</h2>
+                <p>$32.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Handwoven Hat" data-price="70.00" data-image="figurine.jpeg">
+                <img src="hat.jpeg" alt="Handwoven Hat">
+                <h2>Handwoven Hat</h2>
+                <p>$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Tribal Drums" data-price="70.00" data-image="figurine.jpeg">
+                <img src="drums.jpeg" alt="Tribal Drums">
+                <h2>Tribal Drums</h2>
+                <p>$120.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Hand-Carved Spoon" data-price="70.00" data-image="figurine.jpeg">
+                <img src="spoon.jpeg" alt="Hand-Carved Spoon">
+                <h2>Hand-Carved Spoon</h2>
+                <p>$15.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Stone Carving" data-price="70.00" data-image="figurine.jpeg">
+                <img src="stone.jpeg" alt="Stone Carving">
+                <h2>Stone Carving</h2>
+                <p>$50.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Tribal Bangle" data-price="70.00" data-image="figurine.jpeg">
+                <img src="bangle.jpeg" alt="Tribal Bangle">
+                <h2>Tribal Bangle</h2>
+                <p>$28.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Leather Pouch" data-price="70.00" data-image="figurine.jpeg">
+                <img src="pouch.jpeg" alt="Leather Pouch">
+                <h2>Leather Pouch</h2>
+                <p>$35.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Handpainted Vase" data-price="70.00" data-image="figurine.jpeg">
+                <img src="vase.jpeg" alt="Handpainted Vase">
+                <h2>Handpainted Vase</h2>
+                <p>$60.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Tribal Rattle" data-price="70.00" data-image="figurine.jpeg">
+                <img src="rat.jpeg" alt="Tribal Rattle">
+                <h2>Tribal Rattle</h2>
+                <p>$18.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Embroidered Pillow" data-price="70.00" data-image="figurine.jpeg">
+                <img src="pillow.jpeg" alt="Embroidered Pillow">
+                <h2>Embroidered Pillow</h2>
+                <p>$55.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Ceramic Mug" data-price="70.00" data-image="figurine.jpeg">
+                <img src="mug.jpeg" alt="Ceramic Mug">
+                <h2>Ceramic Mug</h2>
+                <p>$22.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Tribal Jewelry Box" data-price="70.00" data-image="figurine.jpeg">
+                <img src="box.jpeg" alt="Tribal Jewelry Box">
+                <h2>Tribal Jewelry Box</h2>
+                <p>$45.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Knitted Blanket" data-price="70.00" data-image="figurine.jpeg">
+                <img src="blank.jpeg" alt="Knitted Blanket">
+                <h2>Knitted Blanket</h2>
+                <p>$55.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Tribal Pottery Set" data-price="70.00" data-image="figurine.jpeg">
+                <img src="pot.jpeg" alt="Tribal Pottery Set">
+                <h2>Tribal Pottery Set</h2>
+                <p>$95.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Handwoven Scarf" data-price="70.00" data-image="figurine.jpeg">
+                <img src="scarf.jpeg" alt="Handwoven Scarf">
+                <h2>Handwoven Scarf</h2>
+                <p>$30.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            <div class="product" data-name="Tribal Pottery" data-price="70.00" data-image="figurine.jpeg">
+                <img src="pott.jpeg" alt="Tribal Pottery">
+                <h2>Tribal Pottery</h2>
+                <p>$50.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-wishlist" onclick="addToWishlist('Sculpted Figurine', 70, 'figurine.jpeg')">Add to Wishlist</button>
+            </div>
+            
+            
+        </div>
+    </main>
+
+    <script>
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const product = event.target.closest('.product');
+                const name = product.dataset.name;
+                const price = parseFloat(product.dataset.price);
+                const image = product.dataset.image;
+
+                const item = {
+                    name: name,
+                    price: price,
+                    image: image,
+                    quantity: 1 // Default quantity
+                };
+
+                // Get the current cart from localStorage or initialize it
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                
+                // Check if the item already exists in the cart
+                const existingItem = cart.find(i => i.name === item.name);
+                if (existingItem) {
+                    existingItem.quantity += 1; // Increase quantity if item exists
+                } else {
+                    cart.push(item); // Add new item to the cart
+                }
+
+                // Save the updated cart back to localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert(`${item.name} has been added to your cart!`);
+            });
+        });
+
+        function addToWishlist(name, price, image) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist.push({ name: name, price: price, image: image });
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            alert(`${name} has been added to your wishlist!`);
+        }
+    </script>
+</body>
+</html>

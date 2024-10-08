@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Lato", sans-serif;
+      background-image: url('backImg.jpg'); /* Replace 'backImg.jpg' with your background image URL */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .sidebar {
+      margin: 0;
+      padding: 0;
+      width: 200px;
+      background-color: #f1f1f1;
+      position: fixed;
+      height: 100%;
+      overflow: auto;
+    }
+
+    .sidebar a {
+      display: block;
+      color: black;
+      padding: 16px;
+      text-decoration: none;
+    }
+
+    .sidebar a.active {
+      background-color: #04AA6D;
+      color: white;
+    }
+
+    div.content {
+      margin-left: 200px;
+      padding: 1px 16px;
+      height: 1000px;
+    }
+
+    @media screen and (max-width: 700px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+      .sidebar a {
+        float: left;
+      }
+      div.content {
+        margin-left: 0;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      .sidebar a {
+        text-align: center;
+        float: none;
+      }
+    }
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: white;
+    }
+
+    .card img {
+      width: 80%; /* Ensure the image takes up the full width */
+      height: 250px; /* Keep aspect ratio */
+      object-fit: cover; /* Ensures the image covers the card without distortion */
+    }
+
+    .title {
+      color: red;
+      font-size: 18px;
+    }
+
+    button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 8px;
+      color: #80FFFF;
+      background-color: black;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 22px;
+      color: black;
+    }
+
+    button:hover, a:hover {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="products.html">Products</a>
+    <a href="payment.html">Payment</a>
+    <a href="tracking.html">Live Tracking</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="UserRating.html">User Rating</a>
+    <a href="logout.html">LogOut</a>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="content">
+    <!-- Card Section -->
+    <div class="card">
+      <img src="SR.jpg" alt="Profile Picture">
+      
+      <h1>SRAVYA</h1>
+      <p class="title">Student</p>
+      <p>sravyachowdary04904@gmail.com</p>
+      <p>KL University, Vijayawada</p>
+      <div style="margin: 24px 0;">
+        <a href="#"><i class="fa fa-dribbble"></i></a> 
+        <a href="#"><i class="fa fa-twitter"></i></a>   
+        <a href="#"><i class="fa fa-facebook"></i></a> 
+        <a href="#"><i class="fa fa-instagram"></i></a>     
+      </div>
+      <p>
+        <button onclick="location.href='contactUs.html';">
+          <i class="fa fa-fw fa-envelope"></i> Contact Us
+        </button>
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

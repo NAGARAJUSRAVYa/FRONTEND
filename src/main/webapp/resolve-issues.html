@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolve Issues</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f5f5f5;
+            padding: 10px 20px;
+        }
+        .header .logo {
+            font-size: 25px;
+            color: #000;
+            text-decoration: none;
+        }
+        .nav-items {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-items a {
+            text-decoration: none;
+            color: #000;
+            padding: 15px 20px;
+            border-radius: 5px;
+        }
+        .nav-items a.active {
+            background-color: #5edaf0;
+            color: #fff;
+        }
+        section {
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            background-color: #5edaf0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #4db8db;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+    <script>
+        let issues = [
+            { id: 1, description: "Payment not received", user: "artisan01", status: "Pending" },
+            { id: 2, description: "Product delivery delayed", user: "customer01", status: "Resolved" }
+        ];
+        
+        function renderIssues() {
+            const tableBody = document.getElementById('issueTableBody');
+            tableBody.innerHTML = ''; // Clear existing table rows
+
+            issues.forEach(issue => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${issue.id}</td>
+                    <td>${issue.description}</td>
+                    <td>${issue.user}</td>
+                    <td>${issue.status}</td>
+                    <td>
+                        <button onclick="markAsResolved(${issue.id})">Resolve</button>
+                        <button onclick="deleteIssue(${issue.id})">Delete</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function markAsResolved(issueId) {
+            const issue = issues.find(i => i.id === issueId);
+            if (issue) {
+                issue.status = "Resolved";
+                renderIssues();
+            }
+        }
+
+        function deleteIssue(issueId) {
+            const confirmDelete = confirm("Are you sure you want to delete this issue?");
+            if (confirmDelete) {
+                issues = issues.filter(i => i.id !== issueId);
+                updateIssueIds(); // Update issue IDs after deletion
+                renderIssues();
+            }
+        }
+
+        function updateIssueIds() {
+            // Update the IDs of issues to maintain synchronization
+            issues.forEach((issue, index) => {
+                issue.id = index + 1;
+            });
+        }
+
+        // Initial render
+        window.onload = renderIssues;
+    </script>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Soulful Crafts Admin</a>
+        <nav class="nav-items">
+            <a href="admin_dashboard.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="manage-products.html">Manage Products</a>
+            <a href="manage-users.html">Manage Users</a>
+            <a href="transactions.html">Transactions</a>
+            <a href="resolve-issues.html" class="active">Resolve Issues</a>
+        </nav>
+    </header>
+    <section>
+        <h1>Resolve Issues</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Issue ID</th>
+                    <th>Description</th>
+                    <th>User</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="issueTableBody">
+                <!-- Issue rows will be rendered here -->
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

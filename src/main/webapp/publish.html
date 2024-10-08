@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Your Ad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ad-form {
+            background-color: rgb(0, 128, 192);
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        textarea,
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(128, 255, 0);
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+         body {
+        background-image: url('userrating5.jpg'); /* Replace 'background.jpg' with the actual image file path */
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+</head>
+<body>
+    <div class="ad-form">
+        <h1>Post Your Ads</h1>
+        <form action="mailto:sahithyapasumarthi@gmail.com" method="post" enctype="text/plain">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required><br><br>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+            <label for "price">Price:</label>
+            <input type="number" id="price" name="price" required><br><br>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category">
+                <option value="Sports">Sports </option>
+                <option value="Television">Television</option>
+                <option value="News">News</option>
+                <option value="Politics">Politics</option>
+                <!-- Add more categories here -->
+            </select><br><br>
+
+            <input type="submit" value="Post Ad">
+        </form>
+    </div>
+</body>
+</html>

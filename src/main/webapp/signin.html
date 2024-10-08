@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-Role Sign In</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        background-image: url('signin-bg.jpg'); /* Replace with your image */
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <div class="form-content">
+            <div class="title">Sign In</div>
+            <!-- Role Selection -->
+            <select id="role" class="role-selection">
+                <option value="admin">Admin</option>
+                <option value="artisan">Artisan</option>
+                <option value="customer">Customer</option>
+                <option value="manager">Cultural Consultant</option>
+            </select>
+            <form id="loginForm">
+                <div class="input-boxes">
+                    <div class="input-box">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-box">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="text"><a href="#">Forgot password?</a></div>
+                    <div class="button input-box">
+                        <input type="submit" value="Sign In" id="signinButton">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for Redirection Based on Role -->
+    <script>
+      document.getElementById("signinButton").addEventListener("click", function(event) {
+        event.preventDefault();
+        
+        var selectedRole = document.getElementById("role").value;
+        
+        if (selectedRole === "admin") {
+            alert("Admin login successful");
+            window.location.href = "admin_dashboard.html";
+        } else if (selectedRole === "artisan") {
+            alert("Artisan login successful");
+            window.location.href = "artisan_dashboard.html";
+        } else if (selectedRole === "customer") {
+            alert("Customer login successful");
+            window.location.href = "products.html";
+        } else if (selectedRole === "manager") {
+            alert("Cultural Consultant login successful");
+            window.location.href = "manager_dashboard.html";
+        }
+      });
+    </script>
+</body>
+</html>
